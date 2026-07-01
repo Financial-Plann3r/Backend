@@ -3,9 +3,13 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import apiRouter from './routes';
 import { errorHandler } from './middlewares/errorMiddleware';
+import { startRecurringScheduler } from './config/cronScheduler';
 
 // Load environment variables
 dotenv.config();
+
+// Start recurring transactions cron job scheduler
+startRecurringScheduler();
 
 const app: Application = express();
 
