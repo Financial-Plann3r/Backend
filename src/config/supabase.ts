@@ -14,14 +14,23 @@ if (!supabaseUrl || !supabaseAnonKey) {
   );
 }
 
-// Regular client (uses anonymous key - adheres to Row Level Security)
+// Regular client: uses the service role key if available to bypass Row Level Security (RLS)
+// since the backend is a secure, trusted environment that already enforces user-specific filtering.
+// Falls back to the anonymous key if the service role key is not defined.
+const databaseKey = supabaseServiceKey || supabaseAnonKey || 'placeholder-key';
+
 export const supabase = createClient(
   supabaseUrl || 'https://placeholder.supabase.co',
-  supabaseAnonKey || 'placeholder-anon-key'
+  databaseKey,
+  {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false
+    }
+  }
 );
 
-// Admin client (uses service role key - bypasses Row Level Security)
-// Only initialized if the service role key is provided in .env
+// Admin client reference kept for backwards compatibility
 export const supabaseAdmin = supabaseServiceKey
   ? createClient(supabaseUrl || '', supabaseServiceKey, {
       auth: {

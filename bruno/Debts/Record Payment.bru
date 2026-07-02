@@ -1,0 +1,25 @@
+meta {
+  name: Record Payment
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/debts/:debtId/payments
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{jwt_token}}
+}
+
+body:json {
+  {
+    "amount": 1000000.00,
+    "walletId": "your-wallet-uuid",
+    "paymentDate": "2026-07-02T14:00:00Z",
+    "paymentType": "principal",
+    "note": "Cicilan ke-1"
+  }
+}

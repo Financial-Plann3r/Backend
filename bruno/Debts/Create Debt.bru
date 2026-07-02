@@ -1,0 +1,32 @@
+meta {
+  name: Create Debt
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/debts
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{jwt_token}}
+}
+
+body:json {
+  {
+    "type": "debt",
+    "partyName": "Bank Mandiri",
+    "partyContact": "021-14000",
+    "principalAmount": 10000000.00,
+    "interestConfig": {
+      "type": "flat",
+      "rate": 5.0
+    },
+    "startDate": "2026-07-02T00:00:00Z",
+    "dueDate": "2027-07-02T00:00:00Z",
+    "sourceCategoryId": null,
+    "note": "Pinjaman modal usaha"
+  }
+}

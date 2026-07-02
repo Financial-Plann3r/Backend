@@ -1,0 +1,31 @@
+meta {
+  name: Create Transaction
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/transactions
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{jwt_token}}
+}
+
+body:json {
+  {
+    "amount": 200000.00,
+    "type": "expense",
+    "categoryId": "your-category-uuid",
+    "walletId": "your-wallet-uuid",
+    "date": "2026-07-02T14:00:00Z",
+    "note": "Belanja Mingguan",
+    "tags": ["bulanan"],
+    "subcategoryId": null,
+    "goalId": null,
+    "debtId": null,
+    "recurringId": null
+  }
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Update Wallet
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{baseUrl}}/api/wallets/:id
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{jwt_token}}
+}
+
+body:json {
+  {
+    "name": "Dompet Utama Baru",
+    "type": "cash",
+    "description": "Uang tunai harian terupdate"
+  }
+}

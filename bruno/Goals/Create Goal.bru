@@ -1,0 +1,30 @@
+meta {
+  name: Create Goal
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/goals
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{jwt_token}}
+}
+
+body:json {
+  {
+    "name": "Beli Laptop",
+    "description": "Menabung untuk laptop kerja",
+    "targetAmount": 15000000.00,
+    "startDate": "2026-06-01T00:00:00Z",
+    "deadline": "2026-12-31T00:00:00Z",
+    "priority": "high",
+    "icon": "laptop",
+    "color": "blue",
+    "categoryId": null,
+    "savingWalletId": null
+  }
+}

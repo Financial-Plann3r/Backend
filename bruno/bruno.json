@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Financial Plann3r Backend",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

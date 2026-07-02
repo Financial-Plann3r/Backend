@@ -1,0 +1,21 @@
+meta {
+  name: Create Subcategory
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/categories/831ec2d4-86e0-4dd3-b506-79ea631c9e35/subcategories
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{jwt_token}}
+}
+
+body:json {
+  {
+    "name": "bisakali"
+  }
+}

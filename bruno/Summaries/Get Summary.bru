@@ -1,0 +1,15 @@
+meta {
+  name: Get Summary
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/summaries/2026-06
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{jwt_token}}
+}

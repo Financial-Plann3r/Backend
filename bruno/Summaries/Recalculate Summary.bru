@@ -1,0 +1,15 @@
+meta {
+  name: Recalculate Summary
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/summaries/:yearMonth/recalculate
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{jwt_token}}
+}
